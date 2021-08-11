@@ -1,4 +1,3 @@
-
 // accepts 'tipAmt', 'billAmt', 'tipPercent' and sums total from allPayments objects
 function sumPaymentTotal(type) {
   let total = 0;
@@ -19,31 +18,31 @@ function calculateTipPercent(billAmt, tipAmt) {
 
 // expects a table row element, appends a newly created td element from the value
 function appendTd(tr, value) {
-  let newTd = document.createElement('td');
+  let newTd = document.createElement("td");
   newTd.innerText = value;
 
   tr.append(newTd);
 }
 
 function appendDeleteBtn(tr, type) {
-  let newbtn = document.createElement('button');
-  newbtn.innerText = 'x'
-  newbtn.addEventListener('click', function(e){
-    let id = e.target.parentElement.parentElement.id
+  let newbtn = document.createElement("button");
+  newbtn.innerText = "x";
+  newbtn.addEventListener("click", function (e) {
+    let id = e.target.parentElement.parentElement.id;
     switch (type) {
-      case 'payment':
-        delete allPayments[id]
-        break
-      case 'server':
-        delete allServers[id]
-        break
+      case "payment":
+        delete allPayments[id];
+        break;
+      case "server":
+        delete allServers[id];
+        break;
     }
     updateServerTable();
     updateSummary();
-    e.target.parentElement.parentElement.remove()
-  })
-  newbtn.className = "deleteBtn"
-  let newTd = document.createElement('td');
-  newTd.appendChild(newbtn)
-  tr.append(newTd)
+    e.target.parentElement.parentElement.remove();
+  });
+  newbtn.className = "deleteBtn";
+  let newTd = document.createElement("td");
+  newTd.appendChild(newbtn);
+  tr.append(newTd);
 }
